@@ -9,7 +9,7 @@ SecureQueryString.dll is a simple library that help you to encrypt QS data and s
 
 Example:
 
-on PageOne.aspx
+### PageOne.aspx
 
  SecureQueryString secureQS = new SecureQueryString();
  secureQS.add("Key1","Value1");
@@ -17,7 +17,7 @@ on PageOne.aspx
  
  Response.Redirect("~/PageTwo.aspx?qs="+secureQS);
  
-on PageTwo.aspx
+### PageTwo.aspx
  
  SecureQueryString secureQS = new SecureQueryString(Request.QueryString("qs"));
  string val1 = secureQS["Key1"];
@@ -25,5 +25,6 @@ on PageTwo.aspx
  
  
  For Hashing default is MD5 but its configurable
+ 
  For Symmetric Cryptography default is Rijndael but its configurable
 
