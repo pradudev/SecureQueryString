@@ -1,5 +1,5 @@
 # SecureQueryString
-Library to securely encrypt QueryString data
+__Library to securely encrypt QueryString data__
 
 Sometimes we might want to send data from one page to another page using QueryStrings(QS).
 But data in the QS is visible to everyone in a plain text format and hence its not a best place to put sensitive data 
@@ -10,21 +10,23 @@ SecureQueryString.dll is a simple library that help you to encrypt QS data and s
 Example:
 
 ### PageOne.aspx
-
+<pre>
  SecureQueryString secureQS = new SecureQueryString();
  secureQS.add("Key1","Value1");
  secureQS.add("Key2","Value2");
+ </pre>
  
  Response.Redirect("~/PageTwo.aspx?qs="+secureQS);
  
 ### PageTwo.aspx
- 
+ <pre>
  SecureQueryString secureQS = new SecureQueryString(Request.QueryString("qs"));
  string val1 = secureQS["Key1"];
  string val2 = secureQS["Key2"];
+ </pre>
  
  
- For Hashing default is MD5 but its configurable
+ *For Hashing default is MD5 but its configurable*
  
- For Symmetric Cryptography default is Rijndael but its configurable
+ *For Symmetric Cryptography default is Rijndael but its configurable*
 
